@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // Credenciales
-    const USUARIO_CORRECTO = "JoseAquino";
-    const CLAVE_CORRECTA = "MiClave123";
+    const USUARIO_CORRECTO = "jose";
+    const CLAVE_CORRECTA = "123";
 
 
     // ==============================
