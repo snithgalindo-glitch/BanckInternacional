@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const CLAVE_CORRECTA = "123";
 
   // 2. Evento para iniciar sesión e ir a la tienda
-  accessForm.addEventListener("submit", (e) => {
+ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault(); // Evita que el navegador recargue la página
 
     const usuario = usernameInput.value.trim();
