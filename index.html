@@ -3,72 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Aplicación Web</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>BancoloInternacional - Acceso</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- Vista de Inicio / Acceso -->
+  <!-- =========================
+       PANTALLA DE LOGIN
+  ========================== -->
   <main id="login-view" class="view-container">
-    <div class="brand-header">
-      <div class="brand-logo">
-        <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" fill="none" stroke-width="2">
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-        </svg>
-      </div>
-      <h1>Portal Web</h1>
+
+    <div class="logo-container">
+      <svg class="logo-icon"
+           viewBox="0 0 24 24"
+           fill="none"
+           stroke="currentColor"
+           stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M2 12h20"></path>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"></path>
+        <path d="M12 2a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10"></path>
+      </svg>
+
+      <span class="logo-text">
+        <strong>Bancolo</strong>Internacional
+      </span>
     </div>
 
-    <form id="access-form" class="card-form">
-      <div class="input-field">
-        <label for="username">USUARIO</label>
-        <input type="text" id="username" placeholder="Ingresa tu usuario" required autocomplete="off">
+    <form id="access-form" class="login-form">
+
+      <div class="input-group">
+        <label for="username">NOMBRE DE USUARIO</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="Ingresa tu usuario"
+          autocomplete="off"
+          required
+        >
       </div>
 
-      <div class="input-field">
+      <div class="input-group">
         <label for="password">CONTRASEÑA</label>
-        <input type="password" id="password" placeholder="••••••••" required>
+        <input
+          type="password"
+          id="password"
+          placeholder="••••••••"
+          required
+        >
       </div>
 
-      <button type="submit" class="btn-primary">Ingresar</button>
+      <div class="forgot-password">
+        <a href="#" id="forgot-link">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <button type="submit" class="btn-submit">
+        INGRESAR
+      </button>
+
     </form>
 
-    <footer class="login-footer">
-      <p>Servicio de atención y soporte técnico</p>
+    <div class="contact-section">
+      <span>📞</span>
+      <span>• Contactanos •</span>
+      <span>📞</span>
+    </div>
+
+    <footer class="footer-text">
+      © Sistema seguro de acceso para usuarios registrados de
+      BancoloInternacional. 🔒
     </footer>
+
   </main>
 
-  <!-- Vista Principal / Dashboard -->
-  <main id="dashboard-view" class="view-container hidden">
-    <header class="dash-header">
+
+  <!-- =========================
+       PANTALLA PRINCIPAL
+  ========================== -->
+  <main id="dashboard-view" class="dashboard-view hidden">
+
+    <header class="dashboard-header">
+
       <div>
-        <span class="subtext">Bienvenido</span>
+        <span class="welcome-text">Bienvenido</span>
         <h2 id="user-display">Usuario</h2>
       </div>
-      <div class="user-avatar">U</div>
+
+      <div class="user-avatar" id="user-avatar">
+        U
+      </div>
+
     </header>
 
-    <section class="summary-card">
-      <span>Saldo Principal</span>
-      <h3 class="amount-display">$ 4.787.000</h3>
+
+    <section class="balance-card">
+
+      <span class="balance-label">
+        Saldo Principal
+      </span>
+
+      <h1 class="balance-amount">
+        $ 4.787.000
+      </h1>
+
+      <span class="balance-status">
+        Cuenta activa
+      </span>
+
     </section>
+
 
     <section class="action-grid">
-      <button class="grid-card">
-        <span>Opción 1</span>
+
+      <button class="action-card">
+        <span class="action-icon">💰</span>
+        <span>Consultar</span>
       </button>
-      <button class="grid-card">
-        <span>Opción 2</span>
+
+      <button class="action-card">
+        <span class="action-icon">↗️</span>
+        <span>Transferir</span>
       </button>
-      <button class="grid-card">
-        <span>Opción 3</span>
+
+      <button class="action-card">
+        <span class="action-icon">📋</span>
+        <span>Movimientos</span>
       </button>
+
     </section>
 
-    <button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+
+    <button id="logout-btn" class="logout-btn">
+      CERRAR SESIÓN
+    </button>
+
   </main>
 
+
   <script src="script.js"></script>
+
 </body>
 </html>
