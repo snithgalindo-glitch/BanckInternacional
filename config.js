@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  const accessForm = document.getElementById("access-form");
+  const btnIngresar = document.getElementById("btn-ingresar");
 
   const loginView = document.getElementById("login-view");
   const dashboardView = document.getElementById("dashboard-view");
@@ -20,38 +20,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // ==========================
-  // INICIAR SESIÓN
+  // INGRESAR
   // ==========================
 
-  accessForm.addEventListener("submit", function (event) {
-
-    // MUY IMPORTANTE:
-    // Evita que el formulario recargue la página.
-    event.preventDefault();
+  btnIngresar.addEventListener("click", function () {
 
     const usuario = usernameInput.value.trim();
     const clave = passwordInput.value;
 
 
-    // Comprobar credenciales
+    // Validar
     if (
       usuario === USUARIO_CORRECTO &&
       clave === CLAVE_CORRECTA
     ) {
 
-      // Mostrar nombre
+      // Mostrar usuario
       userDisplay.textContent = "Sr. " + usuario;
 
-      // Mostrar primera letra en el avatar
-      userAvatar.textContent = usuario.charAt(0).toUpperCase();
+      // Mostrar inicial
+      userAvatar.textContent =
+        usuario.charAt(0).toUpperCase();
 
 
-      // Ocultar Login
+      // Ocultar login
       loginView.classList.add("hidden");
 
-
-      // Mostrar Dashboard
+      // Mostrar dashboard
       dashboardView.classList.remove("hidden");
+
 
     } else {
 
