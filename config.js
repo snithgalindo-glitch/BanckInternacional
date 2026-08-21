@@ -1,95 +1,55 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Selección de elementos del DOM
+  const accessForm = document.getElementById("access-form");
+  const logoutBtn = document.getElementById("logout-btn");
 
-    const btnIngresar = document.getElementById("btn-ingresar");
-    const logoutBtn = document.getElementById("logout-btn");
+  const loginView = document.getElementById("login-view");
+  const dashboardView = document.getElementById("dashboard-view");
 
-    const loginView = document.getElementById("login-view");
-    const dashboardView = document.getElementById("dashboard-view");
+  const usernameInput = document.getElementById("username");
+  const passwordInput = document.getElementById("password");
 
-    const usernameInput = document.getElementById("username");
-    const passwordInput = document.getElementById("password");
+  const userDisplay = document.getElementById("user-display");
+  const userAvatar = document.getElementById("user-avatar");
 
-    const userDisplay = document.getElementById("user-display");
-    const userAvatar = document.getElementById("user-avatar");
+  // Credenciales de prueba
+  const USUARIO_CORRECTO = "jose";
+  const CLAVE_CORRECTA = "123";
 
+  // 2. Evento para iniciar sesión e ir a la tienda
+  accessForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // Evita que el navegador recargue la página
 
-    // Credenciales
-    const USUARIO_CORRECTO = "jose";
-    const CLAVE_CORRECTA = "123";
+    const usuario = usernameInput.value.trim();
+    const clave = passwordInput.value;
 
+    if (usuario === USUARIO_CORRECTO && clave === CLAVE_CORRECTA) {
+      // Personaliza la bienvenida en la tienda
+      if (userDisplay) userDisplay.textContent = `Cliente: ${usuario}`;
+      if (userAvatar) userAvatar.textContent = usuario.charAt(0).toUpperCase();
 
-    // ==============================
-    // BOTÓN INGRESAR
-    // ==============================
+      // Cambia de ventana ocultando el acceso y mostrando la tienda
+      loginView.classList.add("hidden");
+      dashboardView.classList.remove("hidden");
+    } else {
+      alert("Usuario o contraseña incorrectos.");
+      passwordInput.value = "";
+      passwordInput.focus();
+    }
+  });
 
-    btnIngresar.addEventListener("click", function () {
+  // 3. Evento para cerrar sesión y volver al inicio
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      // Limpia las entradas de texto
+      usernameInput.value = "";
+      passwordInput.value = "";
 
-        const usuario = usernameInput.value.trim();
-        const clave = passwordInput.value;
+      // Regresa a la ventana de login
+      dashboardView.classList.add("hidden");
+      loginView.classList.remove("hidden");
 
-
-        console.log("Usuario:", usuario);
-        console.log("Contraseña:", clave);
-
-
-        // Comprobar credenciales
-        if (usuario === USUARIO_CORRECTO && clave === CLAVE_CORRECTA) {
-
-            console.log("Credenciales correctas");
-
-
-            // Cambiar nombre
-            userDisplay.textContent = "Sr. " + usuario;
-
-
-            // Cambiar avatar
-            userAvatar.textContent = usuario.charAt(0).toUpperCase();
-
-
-            // OCULTAR LOGIN
-            loginView.classList.add("hidden");
-
-
-            // MOSTRAR DASHBOARD
-            dashboardView.classList.remove("hidden");
-
-
-            console.log("Dashboard mostrado");
-
-
-        } else {
-
-            alert("Usuario o contraseña incorrectos.");
-
-            passwordInput.value = "";
-            passwordInput.focus();
-
-        }
-
+      usernameInput.focus();
     });
-
-
-    // ==============================
-    // CERRAR SESIÓN
-    // ==============================
-
-    logoutBtn.addEventListener("click", function () {
-
-        // Limpiar campos
-        usernameInput.value = "";
-        passwordInput.value = "";
-
-
-        // Ocultar dashboard
-        dashboardView.style.display = "none";
-
-
-        // Mostrar login
-        loginView.style.display = "block";
-
-
-        usernameInput.focus();
-
-    });
-
+  }
 });
