@@ -1,9 +1,3 @@
-/* =========================================
-   CONFIGURACIÓN GENERAL
-========================================= */
-body {
-    background: red !important;
-}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,55 +6,39 @@ body {
     "Segoe UI", Roboto, sans-serif;
 }
 
-html,
-body {
-  width: 100%;
-  min-height: 100%;
-}
-
 body {
   min-height: 100vh;
-
-  background: linear-gradient(
-    135deg,
-    #f8fafc 0%,
-    #eef2ff 100%
-  );
-
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
   color: #1e293b;
 }
 
 
-/* =========================================
-   OCULTAR PANTALLAS
-========================================= */
+/* =========================
+   OCULTAR ELEMENTOS
+========================= */
 
 .hidden {
   display: none !important;
 }
 
 
-/* =========================================
-   PANTALLA DE LOGIN
-========================================= */
+/* =========================
+   CONTENEDOR LOGIN
+========================= */
 
-#login-view {
+.view-container {
   width: 100%;
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-
-  justify-content: center;
-  align-items: center;
-
-  padding: 30px 20px;
+  max-width: 420px;
 }
 
 
-/* =========================================
-   TARJETA DEL LOGIN
-========================================= */
+/* =========================
+   TARJETA LOGIN
+========================= */
 
 #login-view {
   background: linear-gradient(
@@ -69,27 +47,25 @@ body {
     #fff7ed 50%,
     #f0fdf4 100%
   );
+
+  padding: 35px 28px;
+  border-radius: 24px;
+
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.10);
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
 }
 
 
-/* Contenedor interno del login */
-
-#login-view > * {
-  width: 100%;
-  max-width: 420px;
-}
-
-
-/* =========================================
+/* =========================
    LOGO
-========================================= */
+========================= */
 
 .logo-container {
   display: flex;
-
   justify-content: center;
   align-items: center;
-
   gap: 10px;
 
   margin-bottom: 35px;
@@ -99,20 +75,14 @@ body {
   width: 48px;
   height: 48px;
 
-  min-width: 48px;
-  min-height: 48px;
+  flex-shrink: 0;
 
   color: #ea580c;
-
-  flex-shrink: 0;
 }
 
 .logo-text {
   font-size: 1.35rem;
-
   color: #334155;
-
-  white-space: nowrap;
 }
 
 .logo-text strong {
@@ -120,54 +90,27 @@ body {
 }
 
 
-/* =========================================
+/* =========================
    FORMULARIO
-========================================= */
+========================= */
 
 .login-form {
-  width: 100%;
-
-  background: rgba(255, 255, 255, 0.92);
-
-  padding: 30px;
-
-  border-radius: 22px;
-
-  border: 1px solid rgba(255, 237, 213, 0.9);
-
-  box-shadow:
-    0 15px 35px rgba(15, 23, 42, 0.08);
-
   display: flex;
   flex-direction: column;
-
   gap: 18px;
 }
 
-
-/* =========================================
-   CAMPOS
-========================================= */
-
 .input-group {
-  width: 100%;
-
   display: flex;
   flex-direction: column;
 }
 
 .input-group label {
-  display: block;
-
-  margin-bottom: 7px;
-
   font-size: 0.75rem;
-
   font-weight: 700;
-
   color: #64748b;
 
-  letter-spacing: 0.3px;
+  margin-bottom: 7px;
 }
 
 .input-group input {
@@ -176,50 +119,41 @@ body {
   padding: 13px 15px;
 
   border-radius: 12px;
-
   border: 1px solid #fed7aa;
 
-  background: rgba(255, 255, 255, 0.9);
-
-  color: #1e293b;
+  background: rgba(255, 255, 255, 0.85);
 
   font-size: 0.95rem;
+  color: #1e293b;
 
   outline: none;
 
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .input-group input:focus {
   border-color: #ea580c;
 
   box-shadow:
-    0 0 0 3px rgba(234, 88, 12, 0.12);
+    0 0 0 3px rgba(234, 88, 12, 0.10);
 }
 
 
-/* =========================================
-   OLVIDASTE TU CONTRASEÑA
-========================================= */
+/* =========================
+   OLVIDASTE CONTRASEÑA
+========================= */
 
 .forgot-password {
-  width: 100%;
-
   text-align: right;
-
   margin-top: -5px;
 }
 
 .forgot-password a {
   color: #ea580c;
-
-  font-size: 0.82rem;
-
+  font-size: 0.85rem;
   text-decoration: none;
-
-  cursor: pointer;
 }
 
 .forgot-password a:hover {
@@ -227,9 +161,9 @@ body {
 }
 
 
-/* =========================================
+/* =========================
    BOTÓN INGRESAR
-========================================= */
+========================= */
 
 .btn-submit {
   width: 100%;
@@ -237,34 +171,25 @@ body {
   padding: 14px;
 
   border: none;
-
   border-radius: 12px;
 
   background: #ea580c;
-
-  color: #ffffff;
+  color: white;
 
   font-size: 0.95rem;
-
   font-weight: 700;
-
-  letter-spacing: 0.3px;
 
   cursor: pointer;
 
-  margin-top: 3px;
+  margin-top: 4px;
 
   transition:
-    background 0.2s ease,
-    transform 0.15s ease,
-    box-shadow 0.2s ease;
+    background 0.2s,
+    transform 0.15s;
 }
 
 .btn-submit:hover {
   background: #c2410c;
-
-  box-shadow:
-    0 7px 15px rgba(234, 88, 12, 0.18);
 }
 
 .btn-submit:active {
@@ -272,169 +197,131 @@ body {
 }
 
 
-/* =========================================
+/* =========================
    CONTACTO
-========================================= */
+========================= */
 
 .contact-section {
   display: flex;
-
   justify-content: center;
   align-items: center;
-
   gap: 8px;
 
-  margin-top: 25px;
+  margin-top: 28px;
 
   color: #64748b;
-
   font-size: 0.85rem;
 }
 
 
-/* =========================================
+/* =========================
    FOOTER
-========================================= */
+========================= */
 
 .footer-text {
-  margin-top: 18px;
+  margin-top: 20px;
 
   text-align: center;
 
-  color: #94a3b8;
-
   font-size: 0.7rem;
-
   line-height: 1.5;
+
+  color: #94a3b8;
 }
 
 
-/* =========================================
+/* =========================
    DASHBOARD
-========================================= */
+========================= */
 
-#dashboard-view {
+.dashboard-view {
   width: 100%;
-
-  min-height: 100vh;
-
-  padding: 35px 20px;
+  max-width: 500px;
 
   background: linear-gradient(
     135deg,
-    #f8fafc 0%,
-    #fff7ed 50%,
-    #f0fdf4 100%
+    #ffffff,
+    #fff7ed,
+    #f0fdf4
   );
 
-  display: flex;
+  padding: 28px;
 
-  flex-direction: column;
+  border-radius: 24px;
 
-  align-items: center;
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.10);
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
 }
 
 
-/* =========================================
-   CONTENIDO DEL DASHBOARD
-========================================= */
-
-.dashboard-header,
-.balance-card,
-.action-grid,
-.logout-btn {
-  width: 100%;
-  max-width: 500px;
-}
-
-
-/* =========================================
-   CABECERA
-========================================= */
+/* =========================
+   CABECERA DASHBOARD
+========================= */
 
 .dashboard-header {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
 
   margin-bottom: 22px;
 }
 
 .welcome-text {
-  display: block;
-
-  color: #64748b;
-
   font-size: 0.85rem;
-
-  margin-bottom: 3px;
+  color: #64748b;
 }
 
 .dashboard-header h2 {
+  margin-top: 3px;
+
+  font-size: 1.35rem;
   color: #1e293b;
-
-  font-size: 1.4rem;
-
-  font-weight: 700;
 }
 
-
-/* =========================================
-   AVATAR
-========================================= */
-
 .user-avatar {
-  width: 46px;
-  height: 46px;
+  width: 45px;
+  height: 45px;
 
   border-radius: 50%;
 
   background: #ea580c;
-
   color: white;
 
   display: flex;
-
   justify-content: center;
   align-items: center;
 
   font-weight: 700;
-
-  box-shadow:
-    0 5px 12px rgba(234, 88, 12, 0.2);
 }
 
 
-/* =========================================
-   TARJETA DE SALDO
-========================================= */
+/* =========================
+   SALDO
+========================= */
 
 .balance-card {
-  padding: 25px;
-
-  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    #ea580c,
+    #f97316
+  );
 
   color: white;
 
-  background: linear-gradient(
-    135deg,
-    #ea580c 0%,
-    #f97316 100%
-  );
+  padding: 25px;
 
-  box-shadow:
-    0 12px 25px rgba(234, 88, 12, 0.2);
+  border-radius: 18px;
 
   margin-bottom: 22px;
+
+  box-shadow:
+    0 10px 20px rgba(234, 88, 12, 0.18);
 }
 
 .balance-label {
-  display: block;
-
   font-size: 0.85rem;
-
   opacity: 0.9;
 }
 
@@ -442,9 +329,6 @@ body {
   margin-top: 7px;
 
   font-size: 2rem;
-
-  font-weight: 700;
-
   letter-spacing: -0.5px;
 }
 
@@ -454,19 +338,19 @@ body {
   margin-top: 8px;
 
   font-size: 0.75rem;
-
   opacity: 0.85;
 }
 
 
-/* =========================================
+/* =========================
    OPCIONES
-========================================= */
+========================= */
 
 .action-grid {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:
+    repeat(3, 1fr);
 
   gap: 10px;
 
@@ -474,20 +358,15 @@ body {
 }
 
 .action-card {
-  min-height: 105px;
+  min-height: 100px;
 
-  padding: 15px 8px;
-
-  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.7);
 
   border: 1px solid #ffedd5;
 
-  background: rgba(255, 255, 255, 0.8);
-
-  color: #475569;
+  border-radius: 14px;
 
   display: flex;
-
   flex-direction: column;
 
   justify-content: center;
@@ -495,25 +374,21 @@ body {
 
   gap: 8px;
 
-  font-size: 0.82rem;
+  color: #475569;
 
+  font-size: 0.82rem;
   font-weight: 600;
 
   cursor: pointer;
 
   transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.2s,
+    background 0.2s;
 }
 
 .action-card:hover {
-  background: #ffffff;
-
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 8px 18px rgba(15, 23, 42, 0.08);
+  background: white;
+  transform: translateY(-2px);
 }
 
 .action-icon {
@@ -521,18 +396,20 @@ body {
 }
 
 
-/* =========================================
+/* =========================
    CERRAR SESIÓN
-========================================= */
+========================= */
 
 .logout-btn {
+  width: 100%;
+
   padding: 12px;
 
-  border-radius: 11px;
+  background: transparent;
 
   border: 1px solid #cbd5e1;
 
-  background: transparent;
+  border-radius: 11px;
 
   color: #64748b;
 
@@ -541,81 +418,38 @@ body {
   cursor: pointer;
 
   transition:
-    background 0.2s ease,
-    color 0.2s ease;
+    background 0.2s,
+    color 0.2s;
 }
 
 .logout-btn:hover {
-  background: #ffffff;
-
+  background: #f8fafc;
   color: #334155;
 }
 
 
-/* =========================================
-   ANIMACIÓN ENTRE PANTALLAS
-========================================= */
-
-#login-view:not(.hidden),
-#dashboard-view:not(.hidden) {
-  animation: aparecer 0.3s ease;
-}
-
-@keyframes aparecer {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-/* =========================================
-   MÓVILES
-========================================= */
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media (max-width: 480px) {
 
-  #login-view {
-    padding: 20px 15px;
+  body {
+    padding: 14px;
   }
 
-  .login-form {
-    padding: 24px 20px;
-  }
-
-  .logo-icon {
-    width: 42px;
-    height: 42px;
-
-    min-width: 42px;
-    min-height: 42px;
+  #login-view,
+  .dashboard-view {
+    padding: 25px 20px;
+    border-radius: 20px;
   }
 
   .logo-text {
     font-size: 1.15rem;
   }
 
-  #dashboard-view {
-    padding: 25px 15px;
-  }
-
-  .balance-card {
-    padding: 22px;
-  }
-
   .balance-amount {
     font-size: 1.7rem;
   }
 
-  .action-card {
-    min-height: 95px;
-  }
-
-}
-  display: none !important;
 }
