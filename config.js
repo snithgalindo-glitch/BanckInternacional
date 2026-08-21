@@ -1,26 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const accessForm = document.getElementById('access-form');
+  const btnIngresar = document.getElementById('btn-ingresar');
   const loginView = document.getElementById('login-view');
   const dashboardView = document.getElementById('dashboard-view');
   const userDisplay = document.getElementById('user-display');
+  const usernameInput = document.getElementById('username');
   const logoutBtn = document.getElementById('logout-btn');
 
-  // Evento al enviar el formulario
-  accessForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const usernameInput = document.getElementById('username').value;
+  // Evento para pasar al panel
+  btnIngresar.addEventListener('click', () => {
+    const usuario = usernameInput.value.trim();
     
-    if (usernameInput.trim() !== '') {
-      userDisplay.textContent = usernameInput;
-      loginView.classList.add('hidden');
-      dashboardView.classList.remove('hidden');
+    if (usuario !== '') {
+      userDisplay.textContent = `Bienvenido Sr. ${usuario}`;
+    } else {
+      userDisplay.textContent = 'Bienvenido Sr. Jose Aquino';
     }
+
+    loginView.classList.add('hidden');
+    dashboardView.classList.remove('hidden');
   });
 
-  // Evento para cerrar sesión
+  // Evento para regresar al inicio
   logoutBtn.addEventListener('click', () => {
-    accessForm.reset();
+    usernameInput.value = '';
     dashboardView.classList.add('hidden');
     loginView.classList.remove('hidden');
   });
