@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
   const accessForm = document.getElementById("access-form");
 
@@ -13,89 +13,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const logoutBtn = document.getElementById("logout-btn");
 
-  const forgotLink = document.getElementById("forgot-link");
 
-
-  // Credenciales de demostración
+  // Credenciales
   const USUARIO_CORRECTO = "JoseAquino";
   const CLAVE_CORRECTA = "MiClave123";
 
 
-  // =========================
-  // INGRESAR
-  // =========================
+  // ==========================
+  // INICIAR SESIÓN
+  // ==========================
 
-  accessForm.addEventListener("submit", (event) => {
+  accessForm.addEventListener("submit", function (event) {
 
+    // MUY IMPORTANTE:
+    // Evita que el formulario recargue la página.
     event.preventDefault();
 
-    const usuarioIngresado = usernameInput.value.trim();
-    const claveIngresada = passwordInput.value;
+    const usuario = usernameInput.value.trim();
+    const clave = passwordInput.value;
 
 
+    // Comprobar credenciales
     if (
-      usuarioIngresado === USUARIO_CORRECTO &&
-      claveIngresada === CLAVE_CORRECTA
+      usuario === USUARIO_CORRECTO &&
+      clave === CLAVE_CORRECTA
     ) {
 
       // Mostrar nombre
-      userDisplay.textContent = `Sr. ${usuarioIngresado}`;
+      userDisplay.textContent = "Sr. " + usuario;
 
-      // Inicial del usuario
-      userAvatar.textContent =
-        usuarioIngresado.charAt(0).toUpperCase();
+      // Mostrar primera letra en el avatar
+      userAvatar.textContent = usuario.charAt(0).toUpperCase();
 
 
-      // Ocultar login
+      // Ocultar Login
       loginView.classList.add("hidden");
 
-      // Mostrar dashboard
+
+      // Mostrar Dashboard
       dashboardView.classList.remove("hidden");
 
     } else {
 
-      alert(
-        "Usuario o contraseña incorrectos. Inténtalo de nuevo."
-      );
+      alert("Usuario o contraseña incorrectos.");
 
       passwordInput.value = "";
       passwordInput.focus();
+
     }
 
   });
 
 
-  // =========================
+  // ==========================
   // CERRAR SESIÓN
-  // =========================
+  // ==========================
 
-  logoutBtn.addEventListener("click", () => {
+  logoutBtn.addEventListener("click", function () {
 
     usernameInput.value = "";
     passwordInput.value = "";
 
-    // Ocultar dashboard
     dashboardView.classList.add("hidden");
-
-    // Mostrar login
     loginView.classList.remove("hidden");
 
     usernameInput.focus();
-
-  });
-
-
-  // =========================
-  // OLVIDÓ CONTRASEÑA
-  // =========================
-
-  forgotLink.addEventListener("click", (event) => {
-
-    event.preventDefault();
-
-    alert(
-      "Para recuperar tu contraseña, contacta con el servicio de atención."
-    );
 
   });
 
