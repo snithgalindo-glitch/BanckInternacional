@@ -3,47 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BancoloInternacional - Login</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Mi Aplicación Web</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="login-card">
-    <div class="logo-container">
-      <!-- Icono de mundo simplificado -->
-      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"></circle>
-        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-      </svg>
-      <span class="logo-text"><strong>Bancolo</strong>Internacional</span>
+
+  <!-- Vista de Inicio / Acceso -->
+  <main id="login-view" class="view-container">
+    <div class="brand-header">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" fill="none" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+      </div>
+      <h1>Portal Web</h1>
     </div>
 
-    <form class="login-form">
-      <div class="input-group">
-        <label for="username">NOMBRE DE USUARIO</label>
-        <input type="text" id="username" placeholder="Ingresa tu usuario">
+    <form id="access-form" class="card-form">
+      <div class="input-field">
+        <label for="username">USUARIO</label>
+        <input type="text" id="username" placeholder="Ingresa tu usuario" required autocomplete="off">
       </div>
 
-      <div class="input-group">
+      <div class="input-field">
         <label for="password">CONTRASEÑA</label>
-        <input type="password" id="password" placeholder="••••••••">
+        <input type="password" id="password" placeholder="••••••••" required>
       </div>
 
-      <div class="forgot-password">
-        <a href="#">¿Olvidaste tu contraseña?</a>
-      </div>
-
-      <button type="submit" class="btn-submit">INGRESAR</button>
+      <button type="submit" class="btn-primary">Ingresar</button>
     </form>
-  </div>
 
-  <div class="contact-section">
-    <span class="phone-icon">📞</span>
-    <span>• Contactanos •</span>
-    <span class="phone-icon">📞</span>
-  </div>
+    <footer class="login-footer">
+      <p>Servicio de atención y soporte técnico</p>
+    </footer>
+  </main>
 
-  <footer class="footer-text">
-    © Sistema seguro de acceso para usuarios registrados de Bancolinernacional. 🔒
-  </footer>
+  <!-- Vista Principal / Dashboard -->
+  <main id="dashboard-view" class="view-container hidden">
+    <header class="dash-header">
+      <div>
+        <span class="subtext">Bienvenido</span>
+        <h2 id="user-display">Usuario</h2>
+      </div>
+      <div class="user-avatar">U</div>
+    </header>
+
+    <section class="summary-card">
+      <span>Saldo Principal</span>
+      <h3 class="amount-display">$ 4.787.000</h3>
+    </section>
+
+    <section class="action-grid">
+      <button class="grid-card">
+        <span>Opción 1</span>
+      </button>
+      <button class="grid-card">
+        <span>Opción 2</span>
+      </button>
+      <button class="grid-card">
+        <span>Opción 3</span>
+      </button>
+    </section>
+
+    <button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
