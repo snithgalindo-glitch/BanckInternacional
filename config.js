@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const userDisplay = document.getElementById("user-display");
   const userAvatar = document.getElementById("user-avatar");
-
+ 
   const logoutBtn = document.getElementById("logout-btn");
 
 
