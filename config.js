@@ -47,11 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             // OCULTAR LOGIN
-            loginView.style.display = "none";
+            loginView.classList.add("hidden");
 
 
             // MOSTRAR DASHBOARD
-            dashboardView.style.display = "block";
+            dashboardView.classList.remove("hidden");
 
 
             console.log("Dashboard mostrado");
