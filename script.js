@@ -5,19 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const usernameInput = document.getElementById("username");
   const passwordInput = document.getElementById("password");
 
-  btnIngresar.addEventListener("click", (e) => {
-    e.preventDefault(); // Detiene cualquier recarga automática
+  if (btnIngresar) {
+    btnIngresar.addEventListener("click", (e) => {
+      e.preventDefault();
 
-    const usuario = usernameInput.value.trim();
-    const clave = passwordInput.value.trim();
+      const usuario = usernameInput ? usernameInput.value.trim() : "";
+      const clave = passwordInput ? passwordInput.value.trim() : "";
 
-    if (usuario === "jose" && clave === "123") {
-      loginView.classList.add("hidden");
-      dashboardView.classList.remove("hidden");
-    } else {
-      alert("Usuario o contraseña incorrectos");
-    }
-  });
-});
+      if (usuario === "jose" && clave === "123") {
+        loginView.classList.add("hidden");
+        dashboardView.classList.remove("hidden");
+      } else {
+        alert("Usuario o contraseña incorrectos");
+      }
+    });
   }
 });
